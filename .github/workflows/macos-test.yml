@@ -1,0 +1,21 @@
+
+name: Test macOS build environment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: macos-15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show macOS version
+        run: sw_vers
+
+      - name: Check Xcode
+        run: xcodebuild -version
+
+      - name: Check disk space
+        run: df -h /
